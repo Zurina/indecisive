@@ -13,9 +13,7 @@ export default class MainScreen extends Component {
             <View>
                 <Text style={styles.text}>Hello KamranRocks</Text>
                 <Image
-                    source={{
-                        uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-                    }}
+                    source = {require('C:/Users/Orchi/Desktop/In-decisive/assets/logo.png')}
                     style={{ width: 200, height: 200 }}
                 />
                 <Text style={styles.text}>What are you InDecisive about?</Text>
