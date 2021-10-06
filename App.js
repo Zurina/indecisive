@@ -9,19 +9,22 @@ export default function App() {
 
   const [isLoggedIn, authenticate] = useState(false);
   const [isMapToggled, toggleMap] = useState(false);
+  const [username, setUsername] = useState("");
   
   return (
     
     <View style={styles.container}>
       {!isLoggedIn ? (
-        <LoginScreen login={authenticate}/>
+        <LoginScreen 
+          login={authenticate}
+          setUsername={setUsername}
+        />
       ) : !isMapToggled ? (
-        <MainScreen showMap={toggleMap}/>
+        <MainScreen showMap={toggleMap} username={username} />
       ) : (
-        <MapScreen />
+        <MapScreen showMap={toggleMap}/>
       )}
   </View> 
-
   );
 }
 
@@ -33,14 +36,3 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
 });
-
-/* 
-
-  var markers = [
-    {
-      latitude: 45.65,
-      longitude: -78.90,
-      title: 'Foo Place',
-      subtitle: '1234 Foo Drive'
-    }
-  ]; */

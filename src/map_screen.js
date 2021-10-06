@@ -1,44 +1,51 @@
-import * as React from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import React, { Component } from "react";
+import { View, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import { Button } from 'react-native-elements';
+import styles from "./style";
 
-var markers = [
-    {
-      latitude: 45.65,
-      longitude: -78.90,
-      title: 'Foo Place',
-      subtitle: '1234 Foo Drive'
-    }
-  ];
+export default class MapScreen extends Component {
 
-export default function MapScreen() {
-  return (
-      <MapView 
-        style={styles.map} 
-        initialRegion={{
+  render() {
+    return (
+      <View>
+        <MapView
+          style={styles.map}
+          initialRegion={{
             latitude: 41.3889728,
-            longitude: 2.2006717,   
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-        }}>
-        <Marker coordinate = {{latitude: 41.38897287988443,longitude: 2.2006717304416563}}
-         pinColor = {"purple"} // any color
-         title={"Vitaminas Burger & Beach Bar"}
-         description={"Come visit us!"}
-         />
-      </MapView>
-  );
-}
+            longitude: 2.2006717,
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01,
+          }}>
+          <Marker
+            coordinate={{ latitude: 41.38897287988443, longitude: 2.2006717304416563 }}
+            pinColor={"purple"} // any color
+            title={"Vitaminas Burger & Beach Bar"}
+            description={"Come visit us!"}
+          >
+            <Image
+              source={require('C:/Users/Orchi/Desktop/In-decisive/assets/restaurant_icon.jpg')}
+              style={{ width: 35, height: 35 }}
+            />
+          </Marker>
+        </MapView>
+        <Button
+          style={styles.text}
+          buttonStyle={styles.backButton}
+          onPress={() => this.onLoginPress()}
+          title="Back"
+        />
+      </View>
+    );
+  }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-  },
-});
+  componentDidMount() {
+  }
+
+  componentWillUnmount() {
+  }
+
+  onLoginPress() {
+    this.props.showMap(false)
+  }
+}

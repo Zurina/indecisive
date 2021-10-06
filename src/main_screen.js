@@ -11,7 +11,7 @@ export default class MainScreen extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.text}>Hello KamranRocks</Text>
+                <Text style={styles.text}>Hello {this.props.username}</Text>
                 <Image
                     source = {require('C:/Users/Orchi/Desktop/In-decisive/assets/logo.png')}
                     style={{ width: 200, height: 200 }}

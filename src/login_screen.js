@@ -13,7 +13,7 @@ export default class LoginScreen extends Component {
               source = {require('C:/Users/Orchi/Desktop/In-decisive/assets/logo.png')}
               style={{ width: 200, height: 200 }}
             />
-            <TextInput placeholder="Username" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} />
+            <TextInput onChangeText={(username) => this.props.setUsername(username)} placeholder="Username" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} />
             <TextInput placeholder="Password" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} secureTextEntry={true}/>
             <Button
               buttonStyle={styles.loginButton}

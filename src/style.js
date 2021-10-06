@@ -1,4 +1,5 @@
 const React = require("react-native");
+import { Dimensions } from 'react-native';
 
 const { StyleSheet } = React;
 
@@ -56,5 +57,17 @@ inDecisiveButton: {
   borderRadius: 5,
   height: 45,
   marginTop: 10,
+},
+backButton: {
+  backgroundColor: '#f564a8',
+  borderRadius: 5,
+  height: 45,
+  marginBottom: 100,
+  marginTop: -5
+},
+map: {
+  width: Dimensions.get('window').width,
+  height: Dimensions.get('window').height,
+  zIndex: -1
 },
 };
