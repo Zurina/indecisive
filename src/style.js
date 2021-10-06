@@ -10,11 +10,22 @@ container: {
   alignItems: "center",
   justifyContent: "center"
 },
+text: {
+  marginTop: 25,
+  marginBottom: 25
+},
+categoryButton: {
+  backgroundColor: '#40eb34',
+  borderRadius: 5,
+  height: 45,
+  marginTop: 10,
+  marginRight: 7,
+},
 logoText: {
   fontSize: 40,
   fontWeight: "800",
   marginTop: 150,
-  marginBottom: 30,
+  marginBottom: 150,
   textAlign: 'center',
 },
 loginFormView: {

@@ -13,7 +13,6 @@ var markers = [
 
 export default function MapScreen() {
   return (
-    <View style={styles.container}>
       <MapView 
         style={styles.map} 
         initialRegion={{
@@ -25,9 +24,9 @@ export default function MapScreen() {
         <Marker coordinate = {{latitude: 41.38897287988443,longitude: 2.2006717304416563}}
          pinColor = {"purple"} // any color
          title={"Vitaminas Burger & Beach Bar"}
-         description={"Come visit us!"}/>
+         description={"Come visit us!"}
+         />
       </MapView>
-    </View>
   );
 }
 
