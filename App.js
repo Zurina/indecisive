@@ -9,6 +9,7 @@ export default function App() {
 
   const [isLoggedIn, authenticate] = useState(false);
   const [isMapToggled, toggleMap] = useState(false);
+  
   return (
     
     <View style={styles.container}>
