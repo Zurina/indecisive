@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   View,
   Text,
@@ -9,25 +9,41 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-const Login = () => {
-  return (
-    <View style={styles.container}>
-      <Image style={styles.center} source={require("./logo.png")} />
-      <Text style={styles.title}>Let us decide where you go next!</Text>
+import { Button } from 'react-native-elements';
 
-      <SafeAreaView style={styles.form}>
-        <TextInput style={styles.input} placeholder={"USERNAME"} />
-        <TextInput style={styles.input} placeholder="PASSWORD" />
-      </SafeAreaView>
+export default class Login extends Component {
 
-      <TouchableOpacity style={styles.btn} title="Login">
-        <Text>LOGIN</Text>
-      </TouchableOpacity>
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image style={styles.center} source={require("./logo.png")} />
+        <Text style={styles.title}>Let us decide where you go next!</Text>
 
-      <Text style={styles.signUp}>SIGN UP</Text>
-    </View>
-  );
+        <SafeAreaView style={styles.form}>
+          <TextInput style={styles.input} placeholder={"USERNAME"} />
+          <TextInput style={styles.input} placeholder="PASSWORD" secureTextEntry={true} />
+        </SafeAreaView>
+
+        <TouchableOpacity style={styles.btn} title="Login">
+        <Button
+          color="black"
+          buttonStyle={styles.btn}
+          onPress={() => this.props.login(true)}
+          title="Login"
+        >Login</Button>
+        </TouchableOpacity>
+
+        <Button
+          color="black"
+          buttonStyle={styles.btn}
+          onPress={() => this.props.login(true)}
+          title="Sign Up"
+        >Sign Up</Button>
+      </View>
+    );
+  }
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -54,10 +70,7 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     backgroundColor: "#fff",
     borderRadius: 50,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 30,
-    paddingRight: 30,
+    paddingBottom: 14,
     marginTop: 20,
   },
   form: {
@@ -76,5 +89,3 @@ const styles = StyleSheet.create({
     marginTop: 80,
   },
 });
-
-export default Login;

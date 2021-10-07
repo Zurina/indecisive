@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./style";
+import styles from "../src/style";
 import { View, Image, Text } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown'
 import { Button } from 'react-native-elements';

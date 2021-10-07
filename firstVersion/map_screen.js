@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { Button } from 'react-native-elements';
-import styles from "./style";
+import styles from "../src/style";
 
 export default class MapScreen extends Component {
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import styles from "./style";
+import styles from "../src/style";
 import {Keyboard, View, TextInput, Image} from 'react-native';
 import { Button } from 'react-native-elements';
 
