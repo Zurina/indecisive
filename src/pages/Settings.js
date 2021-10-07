@@ -4,19 +4,17 @@ import {
   Text,
   StyleSheet,
   Image,
-  SafeAreaView,
   TextInput,
   TouchableOpacity,
-  ScrollView,
 } from "react-native";
 
-const Login = () => {
+const Login = ({showSignUp, signUp}) => {
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={require("./logo.png")} />
 
       <View style={styles.form}>
-        <TextInput style={styles.input} placeholder={"FIRST NAME"} />
+        <TextInput style={styles.input} placeholder="FIRST NAME" />
         <TextInput style={styles.input} placeholder="LAST NAME" />
 
         <View style={[styles.center, styles.card, styles.scroll]}>
@@ -41,7 +39,7 @@ const Login = () => {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.btn} title="Login">
+      <TouchableOpacity style={styles.btn} title="Home" onPress={() => signUp(!showSignUp)}>
         <Text>HOME</Text>
       </TouchableOpacity>
     </View>

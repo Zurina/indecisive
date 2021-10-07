@@ -1,28 +1,39 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import LoginModule from './src/pages/Login.js'
-import MainScreen from './firstVersion/main_screen.js'
+import LoginModule from './src/pages/Login'
+import HomeModule from './src/pages/Home'
 import MapScreen from './firstVersion/map_screen.js'
+import SettingsModule from './src/pages/Settings'
 import {useState} from "react";
 
 export default function App() {
 
-  const [isLoggedIn, authenticate] = useState(false);
+  const [isLoggedIn, login] = useState(false);
+  const [showSignUp, signUp] = useState(false)
   const [isMapToggled, toggleMap] = useState(false);
   const [username, setUsername] = useState("");
+  const [categories, toggleCategory] = useState({
+    foods: false,
+    clubs: false,
+    attractions: false,
+    activities: false
+  });
   
   return (
     
     <View style={styles.container}>
-      {!isLoggedIn ? (
+      {!isLoggedIn && !showSignUp ? (
         <LoginModule 
-          login={authenticate}
+          login={login}
           setUsername={setUsername}
+          signUp={signUp}
         />
+      ) : showSignUp ? (
+        <SettingsModule showSignUp={showSignUp} signUp={signUp}/>
       ) : !isMapToggled ? (
-        <MainScreen showMap={toggleMap} username={username} />
+        <HomeModule toggleMap={toggleMap} isMapToggled={isMapToggled} username={username} categories={categories} toggleCategory={toggleCategory}/>
       ) : (
-        <MapScreen showMap={toggleMap}/>
+        <MapScreen categories={categories} toggleMap={toggleMap} isMapToggled={isMapToggled} />
       )}
   </View> 
   );

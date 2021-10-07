@@ -20,27 +20,33 @@ export default class Login extends Component {
         <Text style={styles.title}>Let us decide where you go next!</Text>
 
         <SafeAreaView style={styles.form}>
-          <TextInput style={styles.input} placeholder={"USERNAME"} />
+          <TextInput  onChangeText={(username) => this.props.setUsername(username)} style={styles.input} placeholder={"USERNAME"} />
           <TextInput style={styles.input} placeholder="PASSWORD" secureTextEntry={true} />
         </SafeAreaView>
 
-        <TouchableOpacity style={styles.btn} title="Login">
         <Button
           color="black"
           buttonStyle={styles.btn}
-          onPress={() => this.props.login(true)}
+          onPress={() => this.onLoginPress()}
           title="Login"
-        >Login</Button>
-        </TouchableOpacity>
+        />
 
         <Button
           color="black"
-          buttonStyle={styles.btn}
-          onPress={() => this.props.login(true)}
+          buttonStyle={styles.signUp}
+          onPress={() => this.onSignUpPress()}
           title="Sign Up"
-        >Sign Up</Button>
+        />
       </View>
     );
+  }
+
+  onLoginPress() {
+    this.props.login(true)
+  }
+
+  onSignUpPress() {
+    this.props.signUp(true)
   }
 };
 
@@ -87,5 +93,6 @@ const styles = StyleSheet.create({
   },
   signUp: {
     marginTop: 80,
+    backgroundColor: 'transparent'
   },
 });

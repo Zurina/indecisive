@@ -1,63 +1,72 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
-const Home = () => {
-  const [current, setCurrent] = useState("");
+const Home = ({ username, isMapToggled, toggleMap, toggleCategory, categories }) => {
+
+  const [foods, foodsToggle] = useState(false);
+  const [clubs, clubsToggle] = useState(false)
+  const [attractions, attractionsToggle] = useState(false);
+  const [activities, activitiesToggle] = useState(false);
+
   return (
     <View style={styles.container}>
       <Image style={styles.center} source={require("./logo.png")} />
       <Text style={styles.title}>Let us decide where you go next!</Text>
 
       <View style={{ marginTop: 20 }}>
+        <Text style={styles.username}>{username.toUpperCase()}</Text>
+      </View>
+
+      <View style={{ marginTop: 10 }}>
         <Text style={styles.question}>WHAT DO YOU FEEL</Text>
         <Text style={styles.question}>LIKE DOING TODAY?</Text>
       </View>
 
       <View style={{ marginTop: 50 }}>
         <TouchableOpacity
-          onPress={() => setCurrent("food")}
+          onPress={() => toggleCategory(prevState => ({...prevState, foods: !categories["foods"]}))}
           style={[
             styles.btn,
             styles.checkbox,
-            current === "food" ? styles.current : "",
+            categories["foods"] === true ? styles.current : "",
           ]}
           title="Login"
         >
           <Text
-            style={current === "food" ? { color: "white" } : { color: "black" }}
+            style={categories["foods"] ? { color: "white" } : { color: "black" }}
           >
             FOOD & BEVERAGES
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => setCurrent("clubs")}
+          onPress={() => toggleCategory(prevState => ({...prevState, clubs: !categories["clubs"]}))}
           style={[
             styles.btn,
             styles.checkbox,
-            current === "clubs" ? styles.current : "",
+            categories["clubs"] === true ? styles.current : "",
           ]}
           title="Login"
         >
           <Text
             style={
-              current === "clubs" ? { color: "white" } : { color: "black" }
+              categories["clubs"] ? { color: "white" } : { color: "black" }
             }
           >
             CLUBS
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => setCurrent("attractions")}
+          onPress={() => toggleCategory(prevState => ({...prevState, attractions: !categories["attractions"]}))}
           style={[
             styles.btn,
             styles.checkbox,
-            current === "attractions" ? styles.current : "",
+            categories["attractions"] === true ? styles.current : "",
           ]}
           title="Login"
         >
           <Text
             style={
-              current === "attractions"
+              categories["attractions"]
                 ? { color: "white" }
                 : { color: "black" }
             }
@@ -66,17 +75,17 @@ const Home = () => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => setCurrent("activities")}
+          onPress={() => toggleCategory(prevState => ({...prevState, activities: !categories["activities"]}))}
           style={[
             styles.btn,
             styles.checkbox,
-            current === "activities" ? styles.current : "",
+            categories["activities"] === true ? styles.current : "",
           ]}
           title="Login"
         >
           <Text
             style={
-              current === "activities" ? { color: "white" } : { color: "black" }
+              categories["activities"] ? { color: "white" } : { color: "black" }
             }
           >
             ACTIVITIES
@@ -84,7 +93,7 @@ const Home = () => {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={[styles.btn, { marginTop: 50 }]} title="Login">
+      <TouchableOpacity style={[styles.btn, { marginTop: 50 }]} title="Login" onPress={() => toggleMap(!isMapToggled)}>
         <Text style={{ fontSize: 34 }}>GO</Text>
       </TouchableOpacity>
     </View>
@@ -113,6 +122,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "100",
     color: "#888",
+  },
+  username: {
+    fontSize: 24,
+    fontWeight: "100",
+    color: "#888",
+    alignContent: "center",
+    justifyContent: "center"
   },
   btn: {
     display: "flex",

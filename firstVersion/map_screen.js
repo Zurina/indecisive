@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { Button } from 'react-native-elements';
 import styles from "../src/style";
 
-export default class MapScreen extends Component {
+const Map = ( {toggleMap, isMapToggled, categories }) => {
 
-  render() {
     return (
       <View>
         <MapView
@@ -17,7 +16,9 @@ export default class MapScreen extends Component {
             latitudeDelta: 0.01,
             longitudeDelta: 0.01,
           }}>
-          <Marker
+
+          {categories["foods"] ? (
+            <Marker
             coordinate={{ latitude: 41.38897287988443, longitude: 2.2006717304416563 }}
             pinColor={"purple"} // any color
             title={"Vitaminas Burger & Beach Bar"}
@@ -28,24 +29,55 @@ export default class MapScreen extends Component {
               style={{ width: 35, height: 35 }}
             />
           </Marker>
+          ) : (
+            <Text></Text>
+          )}
+
+          {categories["clubs"] ? (
+            <Marker
+            coordinate={{ latitude: 41.3287988, longitude: 2.271730441}}
+            pinColor={"purple"} // any color
+            title={"Opium"}
+            description={"Come dance!!!"}
+          >
+          </Marker>
+          ) : (
+            <Text></Text>
+          )}
+
+          {categories["attractions"] ? (
+            <Marker
+            coordinate={{ latitude: 41.38897287, longitude: 2.217304416563 }}
+            pinColor={"purple"} // any color
+            title={"Sagrada d familia"}
+            description={"Come watch our amazing unfinished church!"}
+          >
+          </Marker>
+          ) : (
+            <Text></Text>
+          )}
+
+          {categories["activities"] ? (
+            <Marker
+            coordinate={{ latitude: 41.39788443, longitude: 2.2416563 }}
+            pinColor={"purple"} // any color
+            title={"Tibidabu"}
+            description={"Come climb me!"}
+          >
+          </Marker>
+          ) : (
+            <Text></Text>
+          )}
+          
         </MapView>
         <Button
           style={styles.text}
           buttonStyle={styles.backButton}
-          onPress={() => this.onLoginPress()}
+          onPress={() => toggleMap(!isMapToggled)}
           title="Back"
         />
       </View>
     );
   }
 
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
-  onLoginPress() {
-    this.props.showMap(false)
-  }
-}
+export default Map;
