@@ -20,23 +20,17 @@ export default class Login extends Component {
         <Text style={styles.title}>Let us decide where you go next!</Text>
 
         <SafeAreaView style={styles.form}>
-          <TextInput  onChangeText={(username) => this.props.setUsername(username)} style={styles.input} placeholder={"USERNAME"} />
+          <TextInput onChangeText={(username) => this.props.setUsername(username)} style={styles.input} placeholder={"USERNAME"} />
           <TextInput style={styles.input} placeholder="PASSWORD" secureTextEntry={true} />
         </SafeAreaView>
 
-        <Button
-          color="black"
-          buttonStyle={styles.btn}
-          onPress={() => this.onLoginPress()}
-          title="Login"
-        />
+        <TouchableOpacity style={styles.btn} title="Login" onPress={() => this.onLoginPress()}>
+          <Text>LOGIN</Text>
+        </TouchableOpacity>
 
-        <Button
-          color="black"
-          buttonStyle={styles.signUp}
-          onPress={() => this.onSignUpPress()}
-          title="Sign Up"
-        />
+        <TouchableOpacity  title="Login" onPress={() => this.onSignUpPress()}>
+          <Text style={styles.signUp}>SIGN UP</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -76,11 +70,12 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     backgroundColor: "#fff",
     borderRadius: 50,
+    paddingTop: 14,
     paddingBottom: 14,
     marginTop: 20,
   },
   form: {
-    marginTop: 200,
+    marginTop: 10,
   },
   input: {
     borderRadius: 50,
@@ -93,6 +88,5 @@ const styles = StyleSheet.create({
   },
   signUp: {
     marginTop: 80,
-    backgroundColor: 'transparent'
   },
 });

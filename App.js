@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import LoginModule from './src/pages/Login'
 import HomeModule from './src/pages/Home'
-import MapScreen from './firstVersion/map_screen.js'
+import MapScreen from './src/pages/map'
 import SettingsModule from './src/pages/Settings'
 import {useState} from "react";
 
