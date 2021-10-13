@@ -24,10 +24,6 @@ const Map = ({ toggleMap, isMapToggled, categories }) => {
             title={"Vitaminas Burger & Beach Bar"}
             description={"Come visit us!"}
           >
-            <Image
-              source={require('C:/Users/Orchi/Desktop/In-decisive/assets/restaurant_icon.jpg')}
-              style={{ width: 35, height: 35 }}
-            />
           </Marker>
         ) : (
           <Text></Text>
@@ -35,7 +31,7 @@ const Map = ({ toggleMap, isMapToggled, categories }) => {
 
         {categories["clubs"] ? (
           <Marker
-            coordinate={{ latitude: 41.3287988, longitude: 2.271730441 }}
+            coordinate={{ latitude: 41.38540448559623, longitude: 2.1967583745257135 }}
             pinColor={"purple"} // any color
             title={"Opium"}
             description={"Come dance!!!"}
@@ -47,7 +43,7 @@ const Map = ({ toggleMap, isMapToggled, categories }) => {
 
         {categories["attractions"] ? (
           <Marker
-            coordinate={{ latitude: 41.38897287, longitude: 2.217304416563 }}
+            coordinate={{ latitude: 41.390598, longitude: 2.190798 }}
             pinColor={"purple"} // any color
             title={"Sagrada d familia"}
             description={"Come watch our amazing unfinished church!"}
@@ -59,10 +55,10 @@ const Map = ({ toggleMap, isMapToggled, categories }) => {
 
         {categories["activities"] ? (
           <Marker
-            coordinate={{ latitude: 41.39788443, longitude: 2.2416563 }}
+            coordinate={{ latitude: 41.391663, longitude:  2.197915 }}
             pinColor={"purple"} // any color
-            title={"Tibidabu"}
-            description={"Come climb me!"}
+            title={"Zumba dance"}
+            description={"Come work out!"}
           >
           </Marker>
         ) : (
